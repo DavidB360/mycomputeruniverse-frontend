@@ -1,0 +1,66 @@
+.articleContainer {
+    height: 51vh;
+    width: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0.5vh 2vh dodgerblue;
+    margin: 2vh;
+    background-color: #00000099;
+}
+
+.articleContainer img {
+    height: 30vh;
+    width: 30vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.articleContainer h3 {
+    text-align: center;
+    font-size: 2.6vh;
+    font-weight: normal;
+    height: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.price {
+    font-size: 3vh;
+    color: #000;
+    height: 4vh;
+    width: 100%;
+    background: linear-gradient(to right, goldenrod 70%, dodgerblue);
+    text-align: center;
+    font-weight: bold;
+}
+
+.addBtn {
+    font-size: 5vh;
+    height: 5vh;
+    width: 5vh;
+    color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 3vh;
+}
+
+.addBtn:hover {
+    color: yellow;
+}
+
+.notAvailable {
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    margin-bottom: 3vh;
+}
