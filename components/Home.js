@@ -9,24 +9,28 @@ function Home() {
 
     const articles = [
         {
+            id: "0",
             name: "Précieuse mémoire DDR5",
             pic: "/images/golden_memory.webp",
             isAvailable: true,
             price: 100000
         },
         {
+            id: "1",
             name: "SSD du temps perdu",
             pic: "/images/ghost_ssd.webp",
             isAvailable: false,
             price: 100
         },
-        {
+        {   
+            id: "2",
             name: "CPU à refroidissement nucléaire",
             pic: "/images/crazy_heat_sink.webp",
             isAvailable: true,
             price: 1000
         },
-        {
+        {   
+            id: "3",
             name: "boîtier moyen tour Minecraft",
             pic: "/images/minecraft_computer_case.webp",
             isAvailable: true,
