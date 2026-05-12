@@ -170,3 +170,10 @@
 .locationBtn:hover {
   transform: scale(1.2);
 }
+
+/* affichage smartphone */
+@media only all and (max-width: 641px) {
+
+
+  
+}
