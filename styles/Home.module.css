@@ -93,6 +93,11 @@
   font-size: 3.3vh;
 }
 
+/* sur ordinateur, le bouton de fermeture du panier est caché */
+.closeBtn {
+  display: none;
+}
+
 .bill {
   font-size: 3vh;
   font-weight: bold;
@@ -146,7 +151,7 @@
   left: 5vh;
 }
 
-.locationBtn {
+.locationBtn, .cartBtn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,7 +163,7 @@
   color: #fff;
 }
 
-.locationBtn span {
+.locationBtn span, .cartBtn span {
   font-size: 2.5vh;
   color: #fff;
   max-width: 10vh;
@@ -166,13 +171,149 @@
   margin-top: 1vh;
 }
 
-.locationBtn:hover {
+.locationBtn:hover, .cartBtn:hover {
   transform: scale(1.2);
+}
+
+/* sur ordinateur, le bouton du panier est caché */
+.cartBtn {
+  display: none;
 }
 
 /* affichage smartphone */
 @media only all and (max-width: 641px) {
 
+  .main {
+      justify-content:flex-start;
+  }
 
-  
+  .header {
+    height: 20%;
+    width: 100%;
+  }
+
+  .logo {
+    height: 20vh;
+    position:relative;
+    top: 0;
+    left: 0;
+  }
+
+  .header h1 {
+    font-size: 1.5vh;
+  }
+
+  .header h1 strong {
+    font-size: 3vh;
+  }
+
+  .container {
+    height: 60vh;
+    overflow: visible;
+  }
+
+  .container h2 {
+      margin-top: 0;
+  }
+
+  .articles {
+    width: 100%;
+  }
+
+  .articlesList { 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    height: 58vh;
+  }
+
+  .cart {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    max-height: none;
+    z-index: 1;
+    /* prend tout l'écran */
+    height: 100vh;
+    /* empêche le contenu de dépasser de l'écran */
+    overflow: hidden;
+    /* en dehors de l'écran, panier caché */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .cart.open {
+    transform: translateX(0);
+  }
+
+  .closeBtn {
+    display: flex;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    font-size: 3vh;
+    color: #fff;
+    border: solid 0.3vh #fff;
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .cartContent {
+    /* prend tout l'espace disponible */
+    width: 100%;
+    height: auto;
+    padding: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* prend tout l'espace restant après le header et le padding */
+    flex: 1;
+    /* fait scroller le contenu du panier si il dépasse de l'écran */
+    overflow-y: auto;
+    margin: 0;
+  }
+
+  .cartItem {
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+
+  .locationBtnText {
+    display: none;
+  }
+
+  .navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* espace les éléments de manière égale */
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00000099;
+    padding: 1vh 0;
+  }
+
+  .locationBtn, .cartBtn {
+    font-size: 4vh;
+    margin: 2vh 5vh;
+  }
+
+  .cartBtn {
+    display: flex;
+  }
 }

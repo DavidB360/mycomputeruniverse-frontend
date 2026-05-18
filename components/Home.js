@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Article from '../components/Article';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faLocationDot, faShoppingCart, faClosedCaptioning, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 function Home() {
@@ -48,6 +48,8 @@ function Home() {
         setCart(cart.filter(e => cart.indexOf(e) !== index));
     }
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     const bill = cart.reduce(
         (accumulator, currentValue) => accumulator + currentValue.price, 0
     );
@@ -79,13 +81,12 @@ function Home() {
     return (
         <main className={styles.main}>
 
+            <header className={styles.header}>
             <img 
                 src="/images/logo_MCU.webp" 
                 alt="logo de My Computer Universe composé d'une tour d'ordinateur renfermant une planète et coiffée d'un astronaute" 
                 className={styles.logo}
             />
-
-            <header className={styles.header}>
                 <h1>Bienvenue dans notre boutique<br /><strong>My Computer Universe</strong><br />high tech hardware from outter space</h1>
             </header>
 
@@ -100,8 +101,18 @@ function Home() {
 
             </div>
 
-            <aside className={styles.cart}>
+            <aside className={[styles.cart, isCartOpen ? styles.open : ''].join(' ')}>
+            {/* Div pour aligner le bouton fermer sur mobile */}
+            <div className={styles.cartMobileHeader}>
                 <h2>Panier</h2>
+                {/* Bouton fermer le panier qui s'affiche sur mobile */}
+                <div 
+                    className={styles.closeBtn}
+                    onClick={() => setIsCartOpen(false)}
+                >
+                    <FontAwesomeIcon icon={faXmark} />
+                </div>
+            </div>
                 <span className={styles.bill}>{'Total : ' + bill + ' €'}</span>
                 <table className={styles.cartContent}>
                     {displayedCart}
@@ -112,11 +123,18 @@ function Home() {
                 <Link href="/localisation">
                     <div className={styles.locationBtn}>
                         <FontAwesomeIcon icon={faLocationDot} />
-                        <span>Trouver notre boutique</span>
+                        <span><span className={styles.locationBtnText}>Trouver</span> notre boutique</span>
                     </div>
                 </Link>
+                {/* Bouton du panier - affiché sur mobile et caché sur ordinateur, permet d'ouvrir le panier */}    
+                <div 
+                    className={styles.cartBtn}
+                    onClick={() => setIsCartOpen(true)}
+                >
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                    <span>mon panier</span>
+                </div>
             </nav>
-
         </main>
     );
 
