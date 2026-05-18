@@ -86,6 +86,7 @@
   background-color: #00000099;
 }
 
+/* sur ordinateur, le bouton du panier est caché */
 .cartBtn {
   display: none;
 }
@@ -97,6 +98,7 @@
   font-size: 3.3vh;
 }
 
+/* sur ordinateur, le bouton de fermeture du panier est caché */
 .closeBtn {
   display: none;
 }
@@ -247,7 +249,9 @@
     bottom: 0;
     max-height: 100vh;
     z-index: 1;
-    /* en dehors de l'écran, on veut que le panier soit caché */
+    height: 100vh;
+    overflow: hidden;
+    /* en dehors de l'écran, panier caché */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
   }
@@ -282,11 +286,15 @@
     width: 100%;
     height: auto;
     padding: 3vh;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
+    /* prend tout l'espace restant après le header et le padding */
+    flex: 1; 
+    overflow-y: auto;
+    margin: 0;
   }
 
   .cartItem {
@@ -310,7 +318,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* spacer les éléments de manière égale */
+    /* espace les éléments de manière égale */
     justify-content: space-around;
     align-items: center;
     background-color: #00000099;
