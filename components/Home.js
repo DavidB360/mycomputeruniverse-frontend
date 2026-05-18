@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Article from '../components/Article';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faLocationDot, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 function Home() {
@@ -112,6 +112,12 @@ function Home() {
                     <div className={styles.locationBtn}>
                         <FontAwesomeIcon icon={faLocationDot} />
                         <span><span className={styles.locationBtnText}>Trouver</span> notre boutique</span>
+                    </div>
+                </Link>
+                <Link href="/localisation">
+                    <div className={styles.cartBtn}>
+                        <FontAwesomeIcon icon={faShoppingCart} />
+                        <span><span className={styles.cartBtnText}>Voir</span> mon panier</span>
                     </div>
                 </Link>
             </nav>

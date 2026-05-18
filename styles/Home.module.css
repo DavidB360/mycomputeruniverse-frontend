@@ -146,7 +146,7 @@
   left: 5vh;
 }
 
-.locationBtn {
+.locationBtn, .cartBtn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,7 +158,7 @@
   color: #fff;
 }
 
-.locationBtn span {
+.locationBtn span, .cartBtn span {
   font-size: 2.5vh;
   color: #fff;
   max-width: 10vh;
@@ -166,8 +166,12 @@
   margin-top: 1vh;
 }
 
-.locationBtn:hover {
+.locationBtn:hover, .cartBtn:hover {
   transform: scale(1.2);
+}
+
+.cartBtn {
+  display: none;
 }
 
 /* affichage smartphone */
@@ -229,7 +233,7 @@
     width: 100%;
   }
 
-  .locationBtnText {
+  .locationBtnText, .cartBtnText {
     display: none;
   }
 
@@ -240,14 +244,41 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    /* spacer les éléments de manière égale */
+    justify-content: space-around;
     align-items: center;
     background-color: #00000099;
     padding: 1vh 0;
   }
 
-  .locationBtn {
+  .locationBtn, .cartBtn {
     font-size: 4vh;
     flex: 1;
     margin: 2vh 5vh;
   }
+
+  .cart {
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  max-height: 100vh;
+  z-index: 1;
+  /* en dehors de l'écran, on veut que le panier soit caché */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.cart.open {
+  transform: translateX(0);
+}
+
+.cartBtn {
+  display: flex;
+}
+
 }
