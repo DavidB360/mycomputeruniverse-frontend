@@ -102,8 +102,10 @@ function Home() {
             </div>
 
             <aside className={[styles.cart, isCartOpen ? styles.open : ''].join(' ')}>
+            {/* Div pour aligner le bouton fermer sur mobile */}
             <div className={styles.cartMobileHeader}>
                 <h2>Panier</h2>
+                {/* Bouton fermer le panier qui s'affiche sur mobile */}
                 <div 
                     className={styles.closeBtn}
                     onClick={() => setIsCartOpen(false)}>
@@ -123,6 +125,7 @@ function Home() {
                         <span><span className={styles.locationBtnText}>Trouver</span> notre boutique</span>
                     </div>
                 </Link>
+                {/* Bouton du panier - affiché sur mobile et caché sur ordinateur, permet d'ouvrir le panier */}    
                     <div 
                     className={styles.cartBtn}
                     onClick={() => setIsCartOpen(true)}>
