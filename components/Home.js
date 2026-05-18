@@ -79,13 +79,12 @@ function Home() {
     return (
         <main className={styles.main}>
 
+            <header className={styles.header}>
             <img 
                 src="/images/logo_MCU.webp" 
                 alt="logo de My Computer Universe composé d'une tour d'ordinateur renfermant une planète et coiffée d'un astronaute" 
                 className={styles.logo}
             />
-
-            <header className={styles.header}>
                 <h1>Bienvenue dans notre boutique<br /><strong>My Computer Universe</strong><br />high tech hardware from outter space</h1>
             </header>
 
@@ -112,7 +111,7 @@ function Home() {
                 <Link href="/localisation">
                     <div className={styles.locationBtn}>
                         <FontAwesomeIcon icon={faLocationDot} />
-                        <span>Trouver notre boutique</span>
+                        <span><span className={styles.locationBtnText}>Trouver</span> notre boutique</span>
                     </div>
                 </Link>
             </nav>
