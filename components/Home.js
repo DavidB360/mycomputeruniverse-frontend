@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Article from '../components/Article';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faLocationDot, faShoppingCart, faClosedCaptioning } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faLocationDot, faShoppingCart, faClosedCaptioning, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 function Home() {
@@ -108,8 +108,9 @@ function Home() {
                 {/* Bouton fermer le panier qui s'affiche sur mobile */}
                 <div 
                     className={styles.closeBtn}
-                    onClick={() => setIsCartOpen(false)}>
-                        X
+                    onClick={() => setIsCartOpen(false)}
+                >
+                    <FontAwesomeIcon icon={faXmark} />
                 </div>
             </div>
                 <span className={styles.bill}>{'Total : ' + bill + ' €'}</span>
@@ -126,12 +127,13 @@ function Home() {
                     </div>
                 </Link>
                 {/* Bouton du panier - affiché sur mobile et caché sur ordinateur, permet d'ouvrir le panier */}    
-                    <div 
+                <div 
                     className={styles.cartBtn}
-                    onClick={() => setIsCartOpen(true)}>
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                        <span><span className={styles.cartBtnText}>Voir</span> mon panier</span>
-                    </div>
+                    onClick={() => setIsCartOpen(true)}
+                >
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                    <span>mon panier</span>
+                </div>
             </nav>
         </main>
     );

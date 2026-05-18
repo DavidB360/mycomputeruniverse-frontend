@@ -184,20 +184,12 @@
 @media only all and (max-width: 641px) {
 
   .main {
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
       justify-content:flex-start;
-      align-items: center;
   }
 
   .header {
     height: 20%;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 
   .logo {
@@ -208,7 +200,7 @@
   }
 
   .header h1 {
-    font-size: 2vh;
+    font-size: 1.5vh;
   }
 
   .header h1 strong {
@@ -216,9 +208,8 @@
   }
 
   .container {
-    width: 100%;
     height: 60vh;
-    overflow:visible;
+    overflow: visible;
   }
 
   .container h2 {
@@ -232,22 +223,20 @@
   .articlesList { 
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;;
+    align-items: center;
     max-width: 100%;
     width: 100%;
-    overflow: auto;
     height: 58vh;
   }
 
   .cart {
     position: fixed;
-    margin: auto;
     width: 100%;
     height: auto;
     left: 0;
     top: 0;
     bottom: 0;
-    max-height: 100vh;
+    max-height: none;
     z-index: 1;
     /* prend tout l'écran */
     height: 100vh;
@@ -288,7 +277,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
     /* prend tout l'espace restant après le header et le padding */
     flex: 1;
     /* fait scroller le contenu du panier si il dépasse de l'écran */
@@ -297,16 +285,12 @@
   }
 
   .cartItem {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1vh;
     width: 100%;
     
   }
 
-  .locationBtnText, .cartBtnText {
+  .locationBtnText {
     display: none;
   }
 
