@@ -48,6 +48,8 @@ function Home() {
         setCart(cart.filter(e => cart.indexOf(e) !== index));
     }
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     const bill = cart.reduce(
         (accumulator, currentValue) => accumulator + currentValue.price, 0
     );
@@ -99,7 +101,7 @@ function Home() {
 
             </div>
 
-            <aside className={styles.cart}>
+            <aside className={[styles.cart, isCartOpen ? styles.open : ''].join(' ')}>
                 <h2>Panier</h2>
                 <span className={styles.bill}>{'Total : ' + bill + ' €'}</span>
                 <table className={styles.cartContent}>
@@ -114,14 +116,13 @@ function Home() {
                         <span><span className={styles.locationBtnText}>Trouver</span> notre boutique</span>
                     </div>
                 </Link>
-                <Link href="/localisation">
-                    <div className={styles.cartBtn}>
+                    <div 
+                    className={styles.cartBtn}
+                    onClick={() => setIsCartOpen(true)}>
                         <FontAwesomeIcon icon={faShoppingCart} />
                         <span><span className={styles.cartBtnText}>Voir</span> mon panier</span>
                     </div>
-                </Link>
             </nav>
-
         </main>
     );
 
