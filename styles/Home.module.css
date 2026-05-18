@@ -86,11 +86,19 @@
   background-color: #00000099;
 }
 
+.cartBtn {
+  display: none;
+}
+
 .cart h2 {
   margin: 0;
   margin-bottom: 1.5vh;
   align-self: center;
   font-size: 3.3vh;
+}
+
+.closeBtn {
+  display: none;
 }
 
 .bill {
@@ -170,26 +178,8 @@
   transform: scale(1.2);
 }
 
-.cartBtn {
-  display: none;
-}
-
-.closeBtn {
-  display: none;
-}
-
 /* affichage smartphone */
 @media only all and (max-width: 641px) {
-
-  .articlesList { 
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;;
-    max-width: 100%;
-    width: 100%;
-    overflow: auto;
-    height: 58vh;
-  }
 
   .main {
       width: 100vw;
@@ -208,19 +198,19 @@
     align-items: center;
   }
 
-.logo {
-  height: 20vh;
-  position:relative;
-  top: 0;
-  left: 0;
-}
-
-  .header h1 strong {
-    font-size: 3vh;
+  .logo {
+    height: 20vh;
+    position:relative;
+    top: 0;
+    left: 0;
   }
 
   .header h1 {
     font-size: 2vh;
+  }
+
+  .header h1 strong {
+    font-size: 3vh;
   }
 
   .container {
@@ -235,6 +225,78 @@
 
   .articles {
     width: 100%;
+  }
+
+  .articlesList { 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;;
+    max-width: 100%;
+    width: 100%;
+    overflow: auto;
+    height: 58vh;
+  }
+
+  .cart {
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    max-height: 100vh;
+    z-index: 1;
+    /* en dehors de l'écran, on veut que le panier soit caché */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .cart.open {
+    transform: translateX(0);
+  }
+
+  .cartBtn {
+    display: flex;
+  }
+
+  .closeBtn {
+    display: flex;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    font-size: 3vh;
+    color: #fff;
+    border: solid 0.3vh #fff;
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .cartContent {
+    /* prend tout l'espace disponible */
+    width: 100%;
+    height: auto;
+    padding: 3vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .cartItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vh;
+    width: 100%;
+    
   }
 
   .locationBtnText, .cartBtnText {
@@ -257,70 +319,6 @@
 
   .locationBtn, .cartBtn {
     font-size: 4vh;
-
     margin: 2vh 5vh;
   }
-
-  .cart {
-  position: fixed;
-  margin: auto;
-  width: 100%;
-  height: auto;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  max-height: 100vh;
-  z-index: 1;
-  /* en dehors de l'écran, on veut que le panier soit caché */
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-
-}
-
-.cart.open {
-  transform: translateX(0);
-}
-
-.cartBtn {
-  display: flex;
-}
-
-.closeBtn {
-  display: flex;
-  position: absolute;
-  top: 2vh;
-  right: 2vh;
-  font-size: 3vh;
-  color: #fff;
-  border: solid 0.3vh #fff;
-  border-radius: 50%;
-  width: 5vh;
-  height: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.cartContent {
-  /* prend tout l'espace disponible */
-  width: 100%;
-  height: auto;
-  padding: 3vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.cartItem {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1vh;
-  width: 100%;
-  
-}
 }
