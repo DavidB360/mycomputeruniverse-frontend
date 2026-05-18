@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Article from '../components/Article';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faLocationDot, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faLocationDot, faShoppingCart, faClosedCaptioning } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 function Home() {
@@ -102,7 +102,14 @@ function Home() {
             </div>
 
             <aside className={[styles.cart, isCartOpen ? styles.open : ''].join(' ')}>
+            <div className={styles.cartMobileHeader}>
                 <h2>Panier</h2>
+                <div 
+                    className={styles.closeBtn}
+                    onClick={() => setIsCartOpen(false)}>
+                        X
+                </div>
+            </div>
                 <span className={styles.bill}>{'Total : ' + bill + ' €'}</span>
                 <table className={styles.cartContent}>
                     {displayedCart}
